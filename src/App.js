@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Inputer from "./components/Inputer/Inputer";
+import Inputer from "./components/organisms/Inputer";
 import { createGlobalStyle } from "styled-components";
-import Table from "./components/Table/Table";
+import Table from "./components/molecules/Table";
 
 const GlobalStyle = createGlobalStyle`
 

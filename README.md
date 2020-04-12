@@ -1,44 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can generate barcode in this page.
 
-## Available Scripts
+## How to use
 
-In the project directory, you can run:
+In field "Device Name" write name device.
+In field "Serial numbers" paste serial numbers from excel or google sheets.
+We can copy and paste many columns from sheet
 
-### `npm start`
+|-columnB-||-columnC-|
+1234567890 ABCDEFGIJKLNM
+1234567890 ABCDEFGIJKLNM
+1234567890 ABCDEFGIJKLNM
+1234567890 ABCDEFGIJKLNM
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+App recognizes characters "\t" and " ".
+Characters "\t" is new column.
+Characters " " is new row.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Do not divide after (min 2 chars)
 
-### `npm test`
+If in serial number we have space character " " we can inform the application about it in field "Do not divide after (min 2 chars)".
+for example:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Name: Computer 3000
+serial number: ABC`D 1`2345
+serial number: ABC`D 5`6789
 
-### `npm run build`
+We get rows:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    |--column 1------||--column 2---|
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+row 1. Computer 3000 ABCD
+row 2. Computer 3000 12345
+row 3. Computer 3000 ABCD
+row 4. Computer 3000 56789
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**to prevent such an event we have to enter in the field "Do not divide after (min 2 chars)" characters:**
+**"D "**
 
-### `npm run eject`
+We get:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    |--column 1------||--column 2---|
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+row 1. Computer 3000 ABC`D1`2345
+row 2. Computer 3000 ABC`D56`789
