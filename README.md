@@ -22,9 +22,9 @@ Characters " " is new row.
 If in serial number we have space character " " we can inform the application about it in field "Do not divide after (min 2 chars)".
 for example:
 
-Name: Computer 3000
-serial number: ABC`D 1`2345
-serial number: ABC`D 5`6789
+Name: Computer 3000 <br />
+serial number: ABC`D 1`2345 <br />
+serial number: ABC`D 5`6789 <br />
 
 We get rows:
 
