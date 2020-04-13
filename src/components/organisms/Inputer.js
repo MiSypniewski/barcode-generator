@@ -19,8 +19,8 @@ const StyledLabel = styled.label`
   margin-left: 40px;
 `;
 
-const Inputer = ({ changeFn, hideFn, addFn, exceptions, text, title, columns, ...props }) => (
-  <Wrapper disabled={props.off ? true : false}>
+const Inputer = ({ changeFn, hideFn, addFn, exceptions, text, title, columns, off }) => (
+  <Wrapper disabled={off ? true : false}>
     <StyledInput placeholder="Device name" name="title" onChange={changeFn} value={title} />
     <StyledInput placeholder="Serial numbers" name="text" type="text" onChange={changeFn} value={text} />
     <StyledInput

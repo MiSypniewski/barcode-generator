@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React from "react";
+import styled from "styled-components";
 
 const StyledSerial = styled.div`
   font-family: "Libre Barcode 39 Text";
@@ -8,11 +7,9 @@ const StyledSerial = styled.div`
   padding: 9px 0px;
 `;
 
-const Serial = (props) => {
-  const serial = props.serial.replace('ZONKZONKZONK', ' ');
-  return (
-    <StyledSerial>{`*${serial}*`}</StyledSerial>
-  )
-}
+const Serial = ({ serial }) => {
+  const tmpSerial = serial.replace("ZONKZONKZONK", " ");
+  return <StyledSerial>{`*${tmpSerial}*`}</StyledSerial>;
+};
 
 export default Serial;

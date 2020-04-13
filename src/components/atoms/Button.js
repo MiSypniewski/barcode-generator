@@ -19,6 +19,6 @@ const StyledButton = styled.button`
   padding-right: 1em;
 `;
 
-const Button = ({ children, fn, ...props }) => <StyledButton onClick={fn}>{children}</StyledButton>;
+const Button = ({ children, fn }) => <StyledButton onClick={fn}>{children}</StyledButton>;
 
 export default Button;

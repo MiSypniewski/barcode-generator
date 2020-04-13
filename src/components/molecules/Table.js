@@ -5,16 +5,16 @@ import styled from "styled-components";
 
 const StyledRow = styled("div")`
   display: grid;
-  grid-template-columns: repeat(${(props) => props.number}, 1fr);
+  grid-template-columns: repeat(${({ number }) => number}, 1fr);
   grid-template-rows: repeat(auto - fill, 1fr);
   border-bottom: 1px solid black;
   text-align: center;
 `;
 
-const Table = (props) => (
+const Table = ({ list, columns }) => (
   <>
-    {props.list.map((items) => (
-      <StyledRow number={props.columns}>
+    {list.map((items) => (
+      <StyledRow number={columns}>
         <Name key={items.item} title={items.title} index={items.index} />
         {items.serials.map((item) => (
           <Serial key={item} serial={item} />
